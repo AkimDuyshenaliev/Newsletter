@@ -12,8 +12,8 @@ class IndexForm(forms.Form, forms.ModelForm):
         ('iOS', 'iOS')
     ]
 
-    email = forms.CharField(widget=forms.Textarea(
-        attrs={'rows':1, 'cols':100}), required = False, label = 'Email field') #Email area
+    # email = forms.CharField(widget=forms.Textarea(
+    #     attrs={'rows':1, 'cols':100}), required = False, label = 'Email field') #Email area
 
     department = forms.CharField(
         label='Choose department to send email to', widget=forms.Select(choices=departmentChoices))
@@ -23,6 +23,6 @@ class IndexForm(forms.Form, forms.ModelForm):
     message = forms.CharField(widget=forms.Textarea(
         attrs={'rows': 5, 'cols': 70}), required=True, label='Message field')
 
-    class Meta:
-        model = SaveTextFileModel
-        fields = ['fileTXT', ]
+    # class Meta:
+    #     model = SaveTextFileModel
+    #     fields = ['fileTXT', ]
