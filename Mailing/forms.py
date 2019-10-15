@@ -2,7 +2,9 @@ from django import forms
 from .models import SaveTextFileModel, DepartmentModel
 
 
-class IndexForm(forms.Form, forms.ModelForm):
+class IndexForm(forms.Form,
+#  forms.ModelForm
+):
 
     # department = DepartmentModel.objects.all().values('name')
 
