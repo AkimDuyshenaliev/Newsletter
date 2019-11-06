@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mailing</title>
+
+    <!-- Bootstrap styles -->
+	<link rel="stylesheet" href="{% static 'Mailing/bootstrap/css/bootstrap.min.css' %} " type="text/css">
+
 </head>
 <body>
-    <div>
-        <h1>Newsletter</h1>
+    <div class="container mt-4">
+        <h1 class="text-center"><b>Newsletter</b></h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Send</button>
+            <button type="submit" class="btn btn-success px-4">Send</button>
         </form>
     </div>
+
+<!-- Bootstrap scripts -->
+	<script src="{% static 'Mailing/bootstrap/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'Mailing/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
 </body>
 </html>
