@@ -13,8 +13,6 @@ from .forms import *
 from .models import *
 from .serializers import *
 
-# Create your views here.
-
 
 class HomeView(TemplateView):
     name = 'Mailing/index.html'
@@ -36,13 +34,10 @@ class HomeView(TemplateView):
             email_from = settings.EMAIL_HOST_USER
 
             get_department = form.cleaned_data['department'] # Recive the department name
-            print(get_department)
 
             department = DepartmentModel.objects.filter(name__icontains=get_department).values('id')  # Search for department in field and get 'id' of the field
-            print(department)
 
             raw_emails = list(UserModel.objects.filter(department__in=department).values_list('email')) #get filtered by id list of emails
-            print(raw_emails)
 
             #Prepare the list of emails
             to_list = []
@@ -56,9 +51,6 @@ class HomeView(TemplateView):
                     temp[_] = list(raw_emails[_])
                     if last_iteration:
                         to_list += temp[_] #At the last iteration merge all elements into one list
-
-            print(to_list)
-
 
             ##### Read emails from char field ######
             # to_list = form.cleaned_data['email']

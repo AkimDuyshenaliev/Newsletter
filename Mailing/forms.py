@@ -4,22 +4,21 @@ from .models import SaveTextFileModel, DepartmentModel
 
 class IndexForm(forms.Form):
 
-    # departmentChoicesTemp = list(DepartmentModel.objects.filter().values('name'))
-    # for _ in len(departmentChoicesTemp):
-    #     for value in dict.departmentChoicesTemp(_):
-    #         temp = [value]
-    #         dictlist.append(temp)
+    departmentChoicesTemp = list(DepartmentModel.objects.filter().values_list('name'))
+    departmentChoices = []
+    temp = [None] * len(departmentChoicesTemp)
+    last_iteration = len(departmentChoicesTemp) - 1
 
-    # departmentChoices = list(zip())
+    if len(departmentChoicesTemp) == 1:
+        departmentChoices = list(departmentChoicesTemp[0])
+    else:
+        for _ in range(len(departmentChoicesTemp)):
+            temp[_] = list(departmentChoicesTemp[_])
+            if last_iteration:
+                departmentChoices += temp[_]
 
-    departmentChoices = [
-        ('python backend', 'python backend'),
-        ('js', 'JS'),
-        ('iOS', 'iOS')
-    ]
-
-    # email = forms.CharField(widget=forms.Textarea(
-    #     attrs={'rows':1, 'cols':100}), required = False, label = 'Email field') #Email area
+    departmentChoices2 = departmentChoices
+    departmentChoices = list(zip(departmentChoices, departmentChoices2))
 
     department = forms.CharField(
         label='Choose department to send email to', widget=forms.Select(choices=departmentChoices, attrs={'class': 'form-control'}))
