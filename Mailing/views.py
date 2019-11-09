@@ -24,7 +24,7 @@ class HomeView(TemplateView):
     def post(self, request):
         form = IndexForm(request.POST)
         if form.is_valid():  
-            form.save()
+            # form.save()
 
             connection = mail.get_connection()
             connection.open()
