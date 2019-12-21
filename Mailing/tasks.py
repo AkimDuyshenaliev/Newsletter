@@ -19,13 +19,18 @@ from .serializers import *
 
 form = IndexForm()
 
+# selected_date_global = form.cleaned_data['schedule']
 
-@shared_task
+@shared_task()
 def send_email():
     if form.is_valid():
         connection = mail.get_connection()
         connection.open()
 
+        selected_date = form.cleaned_data['schedule']
+        today = date.today()
+
+        time_left = selected_date - today
 
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
@@ -54,13 +59,14 @@ def send_email():
 
         recipient_list = to_list
 
-        send_mail(subject, message, email_from, recipient_list,connection=connection, fail_silently=False)
+        send_mail(subject, message, email_from, recipient_list, connection=connection, fail_silently=False)
 
         connection.close()
 
         print("Email (celery task) successfully sent!")
 
 
+# started_at = datetime.datetime(selected_date_global)
 
 
 # here we assume we want it to be run every 5 mins

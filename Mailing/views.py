@@ -1,11 +1,11 @@
 import os
 
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView
-from django.shortcuts import render, redirect
-from django.core.mail import send_mass_mail, send_mail
+from django.views.generic import TemplateView
+from django.shortcuts import render
+from django.core.mail import send_mail
 from django.conf import settings
 from django.core import mail
-from django.urls import reverse_lazy
+# from django.urls import reverse_lazy
 from datetime import date
 
 from rest_framework import viewsets

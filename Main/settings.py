@@ -145,7 +145,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 #Celery configurations
-CELERY_BROKER_URL = 'REDIS_URL'
+CELERY_BROKER_URL = config('REDIS_URL')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
