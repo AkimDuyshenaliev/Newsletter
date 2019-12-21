@@ -1,0 +1,16 @@
+.fadeAway {
+    -webkit-animation: fadeOut 2s forwards;
+    animation: fadeOut 2s forwards;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+@-webkit-keyframes fadeAway {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeAway {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

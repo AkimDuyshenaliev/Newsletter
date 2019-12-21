@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="{% static 'Mailing/bootstrap/css/bootstrap.min.css' %} " type="text/css">
     
     <link rel="stylesheet" href="{% static 'Mailing/bootstrap/css/switches.css' %} " type="text/css">
-    {{ form.media }}
+    <link rel="stylesheet" href="{% static 'Mailing/bootstrap/css/hide.css' %} " type="text/css">
 </head>
 <body>
     <div class="container mt-4">
@@ -25,11 +25,11 @@
 
 
         {% if success %}
-        <div class="container w-50 align-content-center">
+        <div class="container w-50 align-content-center fadeAway">
             <p class="my-4 py-3 text-center alert-success rounded"><b>{{ success }}</b></p>
         </div>
         {% elif error %}
-        <div class="container w-50 align-content-center">
+        <div class="container w-50 align-content-center fadeAway">
             <p class="my-4 py-3 text-center alert-danger rounded"><b>{{ error }}</b></p>
         </div>  
         {% endif %}
