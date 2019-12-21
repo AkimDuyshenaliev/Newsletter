@@ -12,3 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
         fields = ['id', 'department', 'email']
+
+
+class MessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MessageModel
+        fields = ['id', 'sendDate', 'department', 'subject', 'message']

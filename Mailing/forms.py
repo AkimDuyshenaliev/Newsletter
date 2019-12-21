@@ -1,9 +1,16 @@
 from django import forms
 from .models import SaveTextFileModel, DepartmentModel
 
+from datetime import date
+
 
 class IndexForm(forms.Form):
 
+    schedule = forms.DateField(label='Pick when to send the newsletter (leave as is to send immediately)',
+                               widget=forms.TextInput(attrs={'type': 'date', 'class': 'form-control', 
+                                                             'required': 'false', 'value': date.today()}))
+
+    ### Find the department names and populate CharField choices widget with them
     departmentChoicesTemp = list(DepartmentModel.objects.filter().values_list('name'))
     departmentChoices = []
     temp = [None] * len(departmentChoicesTemp)

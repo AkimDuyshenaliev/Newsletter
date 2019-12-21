@@ -20,3 +20,12 @@ class UserModel(models.Model):
     def __str__(self):
         return self.department
 
+class MessageModel(models.Model):
+    sendDate = models.DateField()
+    department = models.ForeignKey(DepartmentModel, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=80, default="")
+    message = models.TextField(default="")
+
+    def __str__(self):
+        return("Message content")
+
